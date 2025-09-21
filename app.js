@@ -63,8 +63,10 @@ app.use(express.json({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 
+const secret = process.env.SECRET || "secretkey";
+
 const sessionConfig = {
-  secret: "secretkey", // keep this in process.env in production
+  secret, // keep this in process.env in production
   resave: false,
   saveUninitialized: true,
   store: MongoStore.create({
