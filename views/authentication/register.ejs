@@ -1,0 +1,49 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="row justify-content-center mt-5">
+  <div class="col-lg-6 col-md-8">
+    <div class="card shadow-sm border-0 rounded-3">
+      <div class="card-body p-4">
+        <!-- Header -->
+        <h3 class="card-title text-center mb-4 fw-bold">Create an Account</h3>
+
+        <!-- Register Form -->
+        <form action="/travelspots/register" class="needs-validation" novalidate method="POST">
+          <!-- Username -->
+          <div class="mb-3">
+            <label for="username" class="form-label fw-semibold">Username</label>
+            <input type="text" class="form-control" id="username" name="username" required minlength="2" />
+            <div class="invalid-feedback">Please provide a valid username (min 2 chars).</div>
+          </div>
+
+          <!-- Email -->
+          <div class="mb-3">
+            <label for="email" class="form-label fw-semibold">Email</label>
+            <input type="email" class="form-control" id="email" name="email" required />
+            <div class="invalid-feedback">Please enter a valid email address.</div>
+          </div>
+
+          <!-- Password -->
+          <div class="mb-3">
+            <label for="password" class="form-label fw-semibold">Password</label>
+            <input type="password" class="form-control" id="password" name="password" required minlength="6" />
+            <div class="invalid-feedback">Password must be at least 6 characters long.</div>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="d-grid">
+            <button class="btn btn-success btn-lg" type="submit">Register</button>
+          </div>
+        </form>
+
+        <!-- Extra Link -->
+        <div class="text-center mt-3">
+          <small class="text-muted">
+            Already have an account?
+            <a href="/travelspots/login" class="fw-semibold text-decoration-none">Login here</a>
+          </small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

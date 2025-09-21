@@ -1,0 +1,132 @@
+<% layout('layouts/boilerplate') %>
+<div class="row justify-content-center mt-4">
+  <div class="col-lg-6 col-md-8">
+    <div class="card shadow-sm border-0">
+      <div class="card-body p-4">
+        <h3 class="card-title text-center mb-3">Edit Travel Spot</h3>
+
+        <form action="/travelspots/<%= travelspots._id %>?_method=PUT" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
+          <!-- Title -->
+          <div class="mb-2">
+            <label for="title" class="form-label">Title</label>
+            <input
+              type="text"
+              class="form-control form-control-sm"
+              id="title"
+              name="travelspots[title]"
+              required
+              minlength="2"
+              value="<%= travelspots.title %>"
+            />
+          </div>
+
+          <!-- Province + Municipality (side by side) -->
+          <div class="row mb-2">
+            <div class="col-md-6">
+              <label for="province" class="form-label">Province</label>
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                id="province"
+                name="travelspots[province]"
+                required
+                value="<%= travelspots.province %>"
+              />
+            </div>
+            <div class="col-md-6">
+              <label for="municipality" class="form-label">Municipality</label>
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                id="municipality"
+                name="travelspots[municipality]"
+                required
+                value="<%= travelspots.municipality %>"
+              />
+            </div>
+          </div>
+
+          <!-- Price -->
+          <div class="mb-2">
+            <label for="price" class="form-label">Price</label>
+            <div class="input-group">
+              <span class="input-group-text" id="price-label">₱</span>
+              <input
+                type="number"
+                class="form-control"
+                id="price"
+                name="travelspots[price]"
+                placeholder="0"
+                aria-label="price"
+                aria-describedby="price-label"
+                min="0"
+                value="<%= travelspots.price %>"
+              />
+            </div>
+          </div>
+
+          <!-- Description -->
+          <div class="mb-2">
+            <label for="description" class="form-label">Description</label>
+            <textarea
+              class="form-control form-control-sm"
+              id="description"
+              name="travelspots[description]"
+              rows="3"
+              minlength="10"
+              required
+            >
+<%= travelspots.description %></textarea
+            >
+          </div>
+
+          <!-- Category -->
+          <div class="mb-2">
+            <label for="category" class="form-label">Category</label>
+            <select
+              class="form-select form-select-sm"
+              id="category"
+              name="travelspots[category]"
+              required
+            >
+              <option value="" disabled selected>
+                -- Select a Category --
+              </option>
+              <option value="Beach" <%= travelspots.category === "Beach" ? "selected" : "" %>>Beach</option>
+              <option value="Resort" <%= travelspots.category === "Resort" ? "selected" : "" %>>Resort</option>
+            <option value="Mountain" <%= travelspots.category === "Mountain" ? "selected" : "" %>>Mountain</option>
+            <option value="Falls" <%= travelspots.category === "Falls" ? "selected" : "" %>>Falls</option>
+            <option value="Historical" <%= travelspots.category === "Historical" ? "selected" : "" %>>Historical</option>
+            <option value="City" <%= travelspots.category === "City" ? "selected" : "" %>>City</option>
+            <option value="Island" <%= travelspots.category === "Island" ? "selected" : "" %>>Island</option>
+            <option value="Farm" <%= travelspots.category === "Farm" ? "selected" : "" %>>Farm</option>
+            <option value="Park" <%= travelspots.category === "Park" ? "selected" : "" %>>Park</option>
+            </select>
+          </div>
+
+          <!-- Image URL -->
+          <div class="mb-3">
+            <label for="image" class="form-label">Upload Image(s)..</label>
+            <input class="form-control" type="file" id="image" name="image" multiple />
+          </div>
+
+          <div class="mb-3">
+            <% travelspots.images.forEach(function(img, i){ %>
+              <img src="<%= img.thumbnail %>" alt="<%= img.filename %>" class="rounded img-thumbnail" >
+              <div class="form-check-inline">
+                <input type="checkbox" name="deleteImages[]" value="<%= img.filename %>">
+              </div>
+              <label for="image-<%= i %>">Delete</label>
+            <% }) %>
+          </div>
+
+          <!-- Buttons -->
+          <div class="d-flex justify-content-between">
+            <a href="/travelspots" class="btn btn-outline-secondary btn-sm">Cancel</a>
+            <button type="submit" class="btn btn-info btn-sm">Update Travel Spot</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

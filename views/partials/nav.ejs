@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <!-- changed from container-fluid -->
+    <a class="navbar-brand fw-bold" href="/home">TravelSpot</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link active" href="/home">Home</a>
+        <a class="nav-link" href="/travelspots">Spots</a>
+        <a class="nav-link" href="/travelspots/create">New Spot</a>
+        <% if(!currentUser){ %>
+        <a class="nav-link" href="/travelspots/login">Login</a>
+        <a class="nav-link" href="/travelspots/register">Register</a>
+        <% } else { %>
+        <a class="nav-link" href="/travelspots/logout">Logout</a>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</nav>

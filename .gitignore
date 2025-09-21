@@ -1,0 +1,21 @@
+# Node modules (big & unnecessary to upload)
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables (DB passwords, JWT secrets, API keys)
+.env
+
+# OS/system files
+.DS_Store
+Thumbs.db
+
+# Optional: if you ever use coverage tools
+coverage/
+
+# Optional: if you ever use build tools (webpack, vite, etc.)
+dist/
+build/

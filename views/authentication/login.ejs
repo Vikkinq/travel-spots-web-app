@@ -1,0 +1,39 @@
+<% layout('layouts/boilerplate') %>
+<div class="row justify-content-center mt-5">
+  <div class="col-lg-5 col-md-7">
+    <div class="card shadow-lg border-0 rounded-3">
+      <div class="card-body p-4">
+        <h3 class="card-title text-center mb-4 fw-bold">Login</h3>
+
+        <!-- Login Form -->
+        <form action="/travelspots/login" class="validated-form needs-validation" novalidate method="POST">
+          <!-- Username -->
+          <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="username" name="username" required minlength="2" />
+            <div class="valid-feedback">Looks good!</div>
+            <div class="invalid-feedback">Please enter a valid username (min 2 characters).</div>
+          </div>
+
+          <!-- Password -->
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password" required minlength="2" />
+            <div class="valid-feedback">Looks good!</div>
+            <div class="invalid-feedback">Password must be at least 2 characters.</div>
+          </div>
+
+          <div class="d-grid">
+            <button class="btn btn-success" type="submit">Login</button>
+          </div>
+        </form>
+
+        <div class="text-center mt-3">
+          <small
+            >Don’t have an account? <a href="/travelspots/register" class="text-decoration-none">Register</a></small
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

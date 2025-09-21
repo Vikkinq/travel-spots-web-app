@@ -1,0 +1,118 @@
+<% layout('layouts/boilerplate') %>
+<div class="row justify-content-center mt-3 align-items-center">
+  <div class="col-lg-6 col-md-8">
+    <div class="card shadow-sm border-0">
+      <div class="card-body p-4">
+        <h3 class="card-title text-center mb-3">New Travel Spot</h3>
+
+        <form action="/travelSpots" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
+          <!-- Title -->
+          <div class="mb-2">
+            <label for="title" class="form-label">Title</label>
+            <input
+              type="text"
+              class="form-control form-control-sm"
+              id="title"
+              name="travelspots[title]"
+              required
+              minlength="2"
+              required
+            />
+            <div class="valid-feedback">Looks good!</div>
+          </div>
+          <!-- Province + Municipality (side by side) -->
+          <div class="row mb-2">
+            <div class="col-md-6">
+              <label for="province" class="form-label">Province</label>
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                id="province"
+                name="travelspots[province]"
+                required
+              />
+            </div>
+            <div class="col-md-6">
+              <label for="municipality" class="form-label">Municipality</label>
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                id="municipality"
+                name="travelspots[municipality]"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- Price -->
+          <div class="mb-2">
+            <label for="price" class="form-label">Price</label>
+            <div class="input-group">
+              <span class="input-group-text" id="price-label">₱</span>
+              <input
+                type="number"
+                class="form-control"
+                id="price"
+                name="travelspots[price]"
+                placeholder="0"
+                aria-label="price"
+                aria-describedby="price-label"
+                min="0"
+              />
+            </div>
+          </div>
+
+          <!-- Description -->
+          <div class="mb-2">
+            <label for="description" class="form-label">Description</label>
+            <textarea
+              class="form-control form-control-sm"
+              id="description"
+              name="travelspots[description]"
+              rows="3"
+              minlength="10"
+              required
+            ></textarea>
+          </div>
+
+          <!-- Category -->
+          <div class="mb-2">
+            <label for="category" class="form-label">Category</label>
+            <select class="form-select form-select-sm" id="category" name="travelspots[category]" required>
+              <option value="" disabled selected>-- Select a Category --</option>
+              <option value="Beach">Beach</option>
+              <option value="Resort">Resort</option>
+              <option value="Mountain">Mountain</option>
+              <option value="Falls">Falls</option>
+              <option value="Historical">Historical</option>
+              <option value="City">City</option>
+              <option value="Island">Island</option>
+              <option value="Farm">Farm</option>
+              <option value="Park">Park</option>
+            </select>
+          </div>
+
+          <!-- Image URL -->
+          <div class="mb-3">
+            <label for="image" class="form-label">Upload Image(s)..</label>
+            <input class="form-control" type="file" id="image" name="image" multiple />
+          </div>
+
+          <!-- <input type="text" name="travelspots[geometry][coordinates][]" id="lng" />
+          <input type="text" name="travelspots[geometry][coordinates][]" id="lat" /> -->
+
+          <!-- Buttons -->
+          <div class="d-flex justify-content-between">
+            <a href="/travelspots" class="btn btn-outline-secondary btn-sm">Cancel</a>
+            <button type="submit" class="btn btn-success btn-sm">Create Travel Spot</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="col-md-2">
+    <div id="map" style="width: 100%; height: 620px"></div>
+  </div> -->
+</div>
+
+<!-- <script src="/js/map_create.js"></script> -->

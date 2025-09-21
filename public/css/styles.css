@@ -1,0 +1,38 @@
+/* Cluster Map Styling */
+#cluster-map {
+  width: 100vw; /* Full screen width */
+  height: 500px; /* Fixed height */
+  margin-left: calc(-50vw + 50%); /* Stretch container edges to screen */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+#map {
+  height: 250px;
+  border-radius: 12px;
+}
+
+/* Home Page */
+.hero {
+  background: url("/images/isla-gigantes.jpg") no-repeat center center/cover;
+  height: 100vh;
+  position: relative;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  overflow: hidden;
+}
+
+.hero-overlay {
+  background: rgba(0, 0, 0, 0.55);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
