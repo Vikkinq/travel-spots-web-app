@@ -10,9 +10,9 @@ config.apiKey = process.env.MAP_TILER_KEY; // set once globally
 module.exports.index = async (req, res) => {
   const page = req.query.p || 1;
   const spotsPerPage = req.query.limit || 10;
-  const travelspots = await TravelSpot.find({})
-    .skip((page - 1) * spotsPerPage)
-    .limit(spotsPerPage);
+  const travelspots = await TravelSpot.find({});
+  // .skip((page - 1) * spotsPerPage)
+  // .limit(spotsPerPage);
   if (!travelspots) {
     throw new ExpressError("Cannot find data", 404);
   }
