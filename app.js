@@ -102,7 +102,7 @@ app.use("/travelspots", auth_route);
 app.use("/travelspots", travel_ground);
 app.use("/travelspots/:id/reviews", review_route);
 
-app.get("/home", (req, res) => {
+app.get("/", (req, res) => {
   res.render("home");
 });
 
