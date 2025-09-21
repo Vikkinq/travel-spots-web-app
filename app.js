@@ -14,7 +14,6 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local");
 
 const mongoSanitize = require("./Utility/mongoSanitizeV5");
-const MongoDBStore = require("connect-mongo");
 
 // Model
 const User = require("./models/user_schema");
@@ -70,7 +69,7 @@ const sessionConfig = {
   resave: false,
   saveUninitialized: true,
   store: MongoStore.create({
-    mongoUrl: local_mongo,
+    mongoUrl: mongo_url,
     ttl: 14 * 24 * 60 * 60, // 14 days
   }),
   cookie: {
