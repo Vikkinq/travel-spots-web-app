@@ -31,12 +31,12 @@ const MongoStore = require("connect-mongo");
 
 // MongoDB Connect via Mongoose
 const local_mongo = "mongodb://127.0.0.1:27017/travelgrounds";
-const mongo_atlas = process.env.MONGO_ATLAS;
+const mongo_url = process.env.MONGO_ATLAS || "mongodb://127.0.0.1:27017/travelgrounds";
 main().catch((err) => console.log("Error Connection", err));
 
 // mongo_atlas
 async function main() {
-  await mongoose.connect(local_mongo);
+  await mongoose.connect(mongo_url);
   console.log("DB CONNECTED!");
 }
 

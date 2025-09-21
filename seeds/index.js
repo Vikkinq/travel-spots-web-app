@@ -4,10 +4,11 @@ const TravelSpot = require("../models/travelSpot");
 const spots = require("./seeds");
 
 // MongoDB Connect via Mongoose
-main().catch((err) => console.log("Error Connection", err));
+const mongo_url = process.env.MONGO_ATLAS || "mongodb://127.0.0.1:27017/travelgrounds";
 
+main().catch((err) => console.log("Error Connection", err));
 async function main() {
-  await mongoose.connect("mongodb://127.0.0.1:27017/travelgrounds");
+  await mongoose.connect(mongo_url);
   console.log("DB CONNECTED!");
 }
 
